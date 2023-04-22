@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.84.0">
+  <title>Sinh Viên HCE</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/checkout/">
+
+  <!-- Custom styles for this template -->
+  <link rel="stylesheet" href="./frontend/assets/dist/css/jquery-ui.css">
+  <link  type="text/html" href="./frontend/form-validation.css" rel="stylesheet">
+
+
+
+  <!-- test up code on github  -->
+
+
+  <!-- Bootstrap core CSS -->
+  <link href="./frontend/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+</head>
+
+<body class="bg-light">
+
+  <div class="container">
+    <main>
+      <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="./frontend/assets/img/hce_logo_03.png" alt="" height="100">
+        <h2>Danh sách sinh viên</h2>
+      </div>
+
+
+      <div class="g-5">
+        <table class="table table-striped">
+          <thead class="thead-light">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modalSV">
+              Add Students
+            </button>
+            <!-- Modal -->
+            <div class="modal" id="modalSV" tabindex="-1">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Add Students</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                  <div class="mb-3 row">
+                    <label for="txtMSSV" class="col-sm-2 col-form-label">MSSV:</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="txtMSSV" placeholder="Nhập MSSV">
+                    </div>
+                  </div>
+
+                  <div class="mb-3 row">
+                    <label for="txtHoTen" class="col-sm-2 col-form-label">Họ Tên:</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="txtHoTen" placeholder="Nhập Họ Tên">
+                    </div>
+                  </div>
+
+                  <div class="mb-3 row">
+                    <label for="txtLop" class="col-sm-2 col-form-label">Lớp:</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="txtLop">
+                    </div>
+                  </div>
+
+                  <div class="mb-3 row">
+                    <label for="txtLop" class="col-sm-2 col-form-label">Giới tính:</label>
+                    <div class="col-sm-10">
+                      <div class="form-check col-sm-6" >
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="Nam">
+                        <label class="form-check-label" for="Nam">Nam</label>
+                      </div>
+                      <div class="form-check col-sm-6">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="Nu"
+                          checked>
+                        <label class="form-check-label" for="Nu">Nữ</label>
+                      </div>
+                    </div>
+
+                  </div>
+
+
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+      </div>
+      <tr>
+        <th scope="col">STT</th>
+        <th scope="col">Mã SV</th>
+        <th scope="col">Họ Tên</th>
+        <th scope="col">Lớp</th>
+        <th scope="col">Action</th>
+      </tr>
+      </thead>
+      <tbody id="tbodySV">
+        <tr>
+          <th scope="row">1</th>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+          <td>
+            <button class="btn-sm btn-warning">Edit</button>
+            <button class="btn-sm btn-danger">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+      </table>
+      <nav aria-label="Page navigation example">
+        <ul id="ulPagination" class="pagination">
+          <li class="page-item"><a class="page-link" href="#" onclick="goPrev()">Previous</a></li>
+          <li class="page-item"><a class="page-link" href="#"><span id="spanCurPage">1</span></a></li>           
+          <li class="page-item"><a class="page-link" href="#" onclick="goNext()">Next</a></li>
+        </ul>
+      </nav>
+  </div>
+  </main>
+
+  <footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1">&copy; 2022–2023 Thiết kế web nâng cao</p>
+    <ul class="list-inline">
+      <li class="list-inline-item"><a href="#">Privacy</a></li>
+      <li class="list-inline-item"><a href="#">Terms</a></li>
+      <li class="list-inline-item"><a href="#">Support</a></li>
+    </ul>
+  </footer>
+  </div>
+
+  <script src="./frontend/assets/dist/js/jquery-3.6.4.js"></script>
+  <script src="./frontend/assets/dist/js/jquery-ui.js"></script>
+  <script src="./frontend/assets/dist/js/jquery.tmpl.js"></script>
+  <script src="./frontend/assets/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script type="text/html"rc="./frontend/form-validation.js"></script>
+  <script src="./frontend/sv.js"></script>
+  <script id="svTemplate" type="text/x-jQuery-tmpl">
+    <tr>
+      <th scope="row">${STT}</th>
+      <td>${MaSV}</td>
+      <td>${HoTen}</td>
+      <td>${Lop}</td>
+      <td>
+        <button class="btn-sm btn-warning">Edit</button>
+        <button class="btn-sm btn-danger">Delete</button>
+      </td>
+    </tr>
+  </script>
+
+
+</body>
+
+</html>
