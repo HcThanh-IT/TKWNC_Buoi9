@@ -43,6 +43,26 @@ function getStudents(cPage) {
    });
 }
 
+function createSV() {
+    // console.log("Create SV .....");
+    gt=$('input[name="GioiTinh"]:checked').val();
+    $.ajax({
+        method: "POST",
+        url: "http://localhost:3000/students_mysql",
+        data: {
+            "MaSV": $("#txtMSSV").val(),
+            "HoTen": $("#txtHoTen").val(),
+            "Lop": $("#txtLop").val(),
+            "GioiTinh":gt,
+            "NgaySinh": $("#txtNgaySinh").val(),
+        }
+    })
+        .done(function (res) {
+            if(res.success) alert(res.msg);
+            else alert(res.msg);
+        }).fail(function (jqXHR, textStatus, errorThrown) { console.log(textStatus) });
+}
+
 
 
 
