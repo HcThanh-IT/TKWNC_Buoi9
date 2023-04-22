@@ -43,6 +43,9 @@ function getStudents(cPage) {
    });
 }
 
+
+
+
 function goNext() {
     if (curPage == totPage) {
         alert("Đang ở trang cuối!");
@@ -58,3 +61,14 @@ function goPre() {
         getStudents(curPage - 1);
     }
 }
+function formatDate(str){
+    const d=new Date(str);
+    day=d.getDate();
+    month=d.getMonth() +1;
+    year=d.getFullYear();
+
+    return day+"/"+month+"/"+year;
+    
+}
+
+

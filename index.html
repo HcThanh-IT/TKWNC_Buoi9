@@ -94,7 +94,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
+                  <button onclick="createSV()" type="button" class="btn btn-primary">Save changes</button>
                 </div>
               </div>
             </div>
@@ -104,6 +104,8 @@
         <th scope="col">Mã SV</th>
         <th scope="col">Họ Tên</th>
         <th scope="col">Lớp</th>
+        <th scope="col">Giới Tính</th>
+        <th scope="col">Ngày Sinh</th>
         <th scope="col">Action</th>
       </tr>
       </thead>
@@ -153,6 +155,8 @@
       <td>${MaSV}</td>
       <td>${HoTen}</td>
       <td>${Lop}</td>
+      <td>${GioiTinh}</td>
+      <td>${formatDate(NgaySinh)}</td>
       <td>
         <button class="btn-sm btn-warning">Edit</button>
         <button class="btn-sm btn-danger">Delete</button>
